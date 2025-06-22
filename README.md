@@ -10,10 +10,10 @@ Traditional reinforcement learning agents trained on LunarLander often prioritiz
 - Encourage fuel efficient control strategies.
 - Maintain a balance between landing success and fuel conservation.
 
-## Key Components (LanderDQN.py)
+## Key Components (LanderDQN.py and Lander.py)
 
-- **Custom DQN Agent**: Fully implemented from scratch using PyTorch. (L
-- **Modified Reward Function**: Adds negative rewards based on engine thrust.
-- **Training & Evaluation Scripts**: Easily train and test performance across episodes.
+- **Custom DQN Agent (LanderDQN.py)**: Fully implemented from scratch using PyTorch. (L
+- **Modified Reward Function (LanderDQN.py)**: Adds negative rewards based on engine thrust.
+- **Training & Evaluation Scripts (LanderDQN.py)**: Easily train and test performance across episodes.
 - **Performance Visualization (Lander.py)**: Includes plots comparing baseline and fuel-constrained agents.
  

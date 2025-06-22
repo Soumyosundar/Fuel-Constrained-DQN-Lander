@@ -15,5 +15,5 @@ Traditional reinforcement learning agents trained on LunarLander often prioritiz
 - **Custom DQN Agent**: Fully implemented from scratch using PyTorch. (L
 - **Modified Reward Function**: Adds negative rewards based on engine thrust.
 - **Training & Evaluation Scripts**: Easily train and test performance across episodes.
-- **Performance Visualization**: Includes plots comparing baseline and fuel-constrained agents.
+- **Performance Visualization (Lander.py)**: Includes plots comparing baseline and fuel-constrained agents.
  

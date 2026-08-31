@@ -52,11 +52,11 @@ class LanderConfig:
         }
 
 def create_environment(render=False):
-    """Create LunarLander-v2 environment with fuel constraints"""
+    """Create LunarLander-v3 environment with fuel constraints"""
     if render:
-        env = gym.make("LunarLander-v2", render_mode="human")
+        env = gym.make("LunarLander-v3", render_mode="human")
     else:
-        env = gym.make("LunarLander-v2")
+        env = gym.make("LunarLander-v3")
 
     return env
 

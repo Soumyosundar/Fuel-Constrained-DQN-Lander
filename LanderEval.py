@@ -54,7 +54,7 @@ def run_trial(trial_config):
     print("-" * 70)
 
     train_cmd = [
-        'python', '/root/train_dqn.py',
+        'python', 'LanderDQN.py',
         str(pretrain_eps),
         trial_name
     ]
@@ -77,10 +77,11 @@ def run_trial(trial_config):
     checkpoint_path = f"checkpoint_{trial_name}.pth"
 
     eval_cmd = [
-        'python', '/root/evaluate_dqn.py',
+        'python', 'LanderDQN.py',
+        '0',  # 0 episodes = eval only
+        trial_name,
         checkpoint_path,
-        str(eval_eps),
-        trial_name
+        str(eval_eps)
     ]
 
     try:
@@ -136,7 +137,7 @@ def main():
 
     print(f"Total runtime: {total_time/3600:.1f} hours\n")
     print("✓ All trials completed!")
-    print("Next: Run 'python generate_comparison_plots.py' to generate visualizations\n")
+    print("Next: Run 'python Plots.py' to generate visualizations\n")
 
 if __name__ == "__main__":
     main()

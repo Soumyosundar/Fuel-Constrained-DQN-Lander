@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 from pathlib import Path
-from evaluate_dqn import DQN, evaluate_dqn
+from LanderDQN import DQN, evaluate_dqn
 import torch
 import gymnasium as gym
 
@@ -16,7 +16,7 @@ TRIALS = [
     {
         'name': 'Trial_1',
         'checkpoint': 'checkpoint_Trial_1.pth',
-        'eval_episodes': 500,
+        'eval_episodes': 1000,
         'label': 'Trial 1: 10k episodes'
     },
     {
@@ -73,7 +73,15 @@ def load_or_evaluate_trial(trial_config):
     with open(cache_file, 'w') as f:
         json.dump(cache_data, f)
 
-    return results
+    # Convert to NumPy arrays for consistency with cached results
+    return {
+        'rewards': np.array(results['rewards']),
+        'losses': np.array(results['losses']),
+        'greedy_accuracies': np.array(results['greedy_accuracies']),
+        'avg_reward': results['avg_reward'],
+        'avg_loss': results['avg_loss'],
+        'avg_accuracy': results['avg_accuracy']
+    }
 
 def generate_comparison_plots():
     """Generate side-by-side comparison plots for all three trials"""

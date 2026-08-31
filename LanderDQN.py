@@ -124,7 +124,7 @@ def train_dqn(num_episodes, trial_name, device="cpu"):
     # Load configuration
     config = LanderConfig()
 
-    # Create environment
+    # Create environment (using LanderENV helper)
     env = create_environment(render=False)
 
     # Initialize networks
@@ -244,7 +244,7 @@ def evaluate_dqn(checkpoint_path, num_eval_episodes, trial_name, device="cpu"):
     # Load model
     q_net = DQN().to(device)
     target_net = DQN().to(device)
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
     q_net.load_state_dict(checkpoint['model_state_dict'])
     target_net.load_state_dict(checkpoint['target_model_state_dict'])
     q_net.eval()
